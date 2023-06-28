@@ -1,0 +1,17 @@
+&nbsp;
+<div class="form">
+    <span>
+        <mat-label> &nbsp; Select Your ID to edit :- </mat-label>
+        <mat-form-field>
+            <mat-label>Select ID</mat-label>
+            <mat-select [(ngModel)]="selectedOption" (selectionChange)="onOptionSelected($event)">
+                <mat-option value="1">1</mat-option>
+                <mat-option value="2">2</mat-option>
+              </mat-select>
+        </mat-form-field>
+        <p> &nbsp;Your Selected Option : {{ selectedOption }}</p>
+        &nbsp;<br><br>
+        &nbsp;<a mat-raised-button color="primary" [routerLink]="'/edit/' + selectedOption">Edit User</a>&nbsp;
+        <a mat-raised-button color="warn" [routerLink]="'/delete/' + selectedOption">Delete User</a>
+    </span>
+</div>

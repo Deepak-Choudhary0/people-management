@@ -1,15 +1,15 @@
 .demo-table {
-    width: 100%;
-  }
-  
-  .demo-button-container {
-    padding-bottom: 16px;
-  }
-  
-  .demo-button + .demo-button {
-    margin-left: 8px;
-  }
+  width: 100%;
+}
 
-  td{
-    background-color: rgb(102, 153, 153);
-  }
+.demo-button-container {
+  padding-bottom: 16px;
+}
+
+.demo-button + .demo-button {
+  margin-left: 8px;
+}
+
+td{
+  background-color: rgb(102, 153, 153);
+}

@@ -21,6 +21,7 @@
                 <mat-option *ngFor="let id of getId()" [value]="id">{{ id }}</mat-option>
               </mat-select>
         </mat-form-field>
+        Click on Get All Item button to get all the id's except for 1
         <p> 
           <!-- &nbsp;Your Selected Option : {{ selectedOption }} -->
           &nbsp;&nbsp;To get Details of Id:- {{selectedOption}} &nbsp;<button (click)="getItemById(selectedOption)">Click Here</button>

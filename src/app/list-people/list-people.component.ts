@@ -21,13 +21,15 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class ListPeopleComponent {
   selectedOption!: number;
 
+  availableID =[1];
+  
   onOptionSelected(event: any) {
     this.selectedOption = event.value;
     console.log(event.value);
   }
   
   getId(): number[] {
-    return [1, 2, 3]; // Replace with your actual list of IDs
+    return this.availableID;
   }
 
   displayedColumns: string[] = ['id', 'name', 'age', 'gender','mob'];
@@ -41,6 +43,10 @@ export class ListPeopleComponent {
     this.http.get<any>('http://localhost:3000/person').subscribe(data => {
       // Handle the response data
       console.log(data);
+      // this.availableID = [x for x in data.length];
+      for (let i = 2; i <= data.length; i++) {
+        this.availableID.push(i);
+      }
       this.dataSource = data;
     }, error => {
       // Handle any errors

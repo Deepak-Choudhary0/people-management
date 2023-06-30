@@ -1,0 +1,16 @@
+.change-button {
+    background: linear-gradient(to right, #00bcd4, #009688); /* Gradient from cyan to teal */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+  }
+  
+  .change-button:hover {
+    background: linear-gradient(to right, #009688, #004d40); /* Gradient from teal to dark teal on hover */
+    cursor: pointer;
+  }
+  

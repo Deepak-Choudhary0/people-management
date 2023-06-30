@@ -1,17 +1,71 @@
-&nbsp;
-<div class="form">
-    <span>
-        <mat-label> &nbsp; Select Your ID to edit :- </mat-label>
-        <mat-form-field>
-            <mat-label>Select ID</mat-label>
-            <mat-select [(ngModel)]="selectedOption" (selectionChange)="onOptionSelected($event)">
-                <mat-option value="1">1</mat-option>
-                <mat-option value="2">2</mat-option>
-              </mat-select>
-        </mat-form-field>
-        <p> &nbsp;Your Selected Option : {{ selectedOption }}</p>
-        &nbsp;<br><br>
-        &nbsp;<a mat-raised-button color="primary" [routerLink]="'/edit/' + selectedOption">Edit User</a>&nbsp;
-        <a mat-raised-button color="warn" [routerLink]="'/delete/' + selectedOption">Delete User</a>
-    </span>
+<!-- <div class="demo-button-container">
+    <button mat-raised-button (click)="addData()" class="demo-button">
+      Add data
+    </button>
+    <button
+        mat-raised-button
+        [disabled]="!dataSource.length"
+        (click)="removeData()"
+        class="demo-button">
+      Remove data
+    </button>
+  </div> -->
+  <br>
+  <!-- <button class="get-button" (click)="getAllItems()">Get all id's</button> -->
+
+  <div class="selection-container">
+    <mat-label> &nbsp; Select Your ID</mat-label>
+    <mat-form-field>
+        <mat-label>Select ID</mat-label>
+        <mat-select [(ngModel)]="selectedOption" (selectionChange)="onOptionSelected($event)">
+            <mat-option *ngFor="let id of getId()" [value]="id">{{ id }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="button-container">
+    <!-- <span>To Change/Delete Details of Id:- {{selectedOption}}</span> -->
+    <button mat-raised-button color="primary" class="edit-button" [disabled]="!isDisable" [routerLink]="'/edit/' + selectedOption">Edit Person Details</button>
+    <button mat-raised-button color="warn" class="delete-button" [disabled]="!isDisable" (click)="openDialog()">Delete Person</button>
+    <!-- <button mat-raised-button (click)="openDialog()">Open dialog</button> -->
+  </div>
+        
+          <!-- &nbsp;Your Selected Option : {{ selectedOption }} -->
+  <!-- <button (click)="createItem({id: 3, name: 'Punjab', age: 45, gender: 'F', mob: 1234567890})">Create Item</button> -->
+  <!-- <button (click)="getItemById(1)">Get Item By ID</button> -->
+  <br><br>
+  <div class="demo-table-container">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+    
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>Id</th>
+        <td mat-cell *matCellDef="let element">{{element.id}}</td>
+    </ng-container>
+    
+    <!-- Position Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">{{element.name}}</td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="age">
+      <th mat-header-cell *matHeaderCellDef>Age</th>
+      <td mat-cell *matCellDef="let element">{{element.age}}</td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="gender">
+      <th mat-header-cell *matHeaderCellDef>Gender</th>
+      <td mat-cell *matCellDef="let element">{{element.gender}}</td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="mob">
+      <th mat-header-cell *matHeaderCellDef>Mobile Number</th>
+      <td mat-cell *matCellDef="let element">{{element.mob}}</td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
 </div>

@@ -1,15 +1,23 @@
-.demo-table {
-    width: 100%;
-  }
-  
-  .demo-button-container {
-    padding-bottom: 16px;
-  }
-  
-  .demo-button + .demo-button {
-    margin-left: 8px;
-  }
+.demo-table-div {
+  margin: 20px;
+}
 
-  td{
-    background-color: rgb(102, 153, 153);
-  }
+.demo-button-container {
+  padding-bottom: 16px;
+}
+
+.demo-button + .demo-button {
+  margin-left: 8px;
+}
+
+td{
+  background-color: rgb(102, 153, 153);
+}
+
+.heading{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: 20px;
+  font-weight: bold;
+}

@@ -1,1 +1,40 @@
-<p>create-people works!</p>
+<!-- <form (ngSubmit)="createItem()">
+    &nbsp;&nbsp;Name<input type="text" [(ngModel)]="person.name" name="name" placeholder="Name" required>
+    <br>
+    &nbsp;&nbsp;Age<input type="number" [(ngModel)]="person.age" name="age" placeholder="Age" required>
+    <br>
+    &nbsp;&nbsp;Gender<input type="text" [(ngModel)]="person.gender" name="gender" placeholder="Gender" required>
+    <br>
+    &nbsp;&nbsp;Mobile Number<input type="number" [(ngModel)]="person.mob" name="mob" placeholder="Mobile Number" required>
+    <br>
+    <button type="submit">Submit</button>
+  </form> -->
+  <br><br>
+  <div class="heading">
+      <mat-label> &nbsp; Create Person</mat-label>
+  </div>
+  <br><br>
+  <form (ngSubmit)="createItem()" class="form-container">
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="person.name" name="name" placeholder="Name" required>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Age</mat-label>
+      <input matInput [(ngModel)]="person.age" name="age" placeholder="Age" required>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Gender</mat-label>
+      <input matInput [(ngModel)]="person.gender" name="gender" placeholder="Gender" required>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Mobile Number</mat-label>
+      <input matInput [(ngModel)]="person.mob" name="mob" placeholder="Mobile Number" required>
+    </mat-form-field>
+  
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+  </form>
+  

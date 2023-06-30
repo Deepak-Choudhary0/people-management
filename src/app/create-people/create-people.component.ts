@@ -24,13 +24,13 @@ export class CreatePeopleComponent {
 
   createItem() {
     console.log(this.person);
-    // this.http.post<any>('http://localhost:3000/person', {}).subscribe(response => {
-    //   // Handle the response
-    //   console.log(response);
-    // }, error => {
-    //   // Handle any errors
-    //   console.error('An error occurred:', error);
-    // });
+    this.http.post<any>('http://localhost:3000/person', this.person).subscribe(response => {
+      // Handle the response
+      console.log(response);
+    }, error => {
+      // Handle any errors
+      console.error('An error occurred:', error);
+    });
   }
     
   constructor(private http: HttpClient) { }

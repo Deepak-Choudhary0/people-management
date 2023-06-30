@@ -1,7 +1,9 @@
-import { Component,ViewChild } from '@angular/core';
+import { Component,ViewChild,OnInit } from '@angular/core';
 import { MatTable } from '@angular/material/table';
 import { HttpClient } from '@angular/common/http';
-
+import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
 export interface PeriodicElement {
   id: number;
   name: string;
@@ -19,15 +21,34 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./list-people.component.css']
 })
 export class ListPeopleComponent {
+  
+  myControl = new FormControl('');
+  options: string[] = ['Snoop Dogg', 'Anand Ji', 'Naruto','Shorts','Shorts'];
+  filteredOptions!: Observable<string[]>;
+
+  ngOnInit() {
+    this.getAllItems();
+    this.filteredOptions = this.myControl.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filter(value || '')),
+    );
+  }
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.options.filter(option => option.toLowerCase().includes(filterValue));
+  }
   selectedOption!: number;
 
-  availableID =[1];
-  
+  availableID : number[] = [];
+
   onOptionSelected(event: any) {
     this.selectedOption = event.value;
     console.log(event.value);
   }
   
+
   getId(): number[] {
     return this.availableID;
   }
@@ -44,8 +65,10 @@ export class ListPeopleComponent {
       // Handle the response data
       console.log(data);
       // this.availableID = [x for x in data.length];
-      for (let i = 2; i <= data.length; i++) {
-        this.availableID.push(i);
+      for (let i = 1; i <= data.length; i++) {
+        if (!this.availableID.includes(i)) {
+          this.availableID.push(i);
+        }
       }
       this.dataSource = data;
     }, error => {

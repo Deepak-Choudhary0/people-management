@@ -135,7 +135,7 @@ const connectToMongoDB = async () => {
     
       const result = await collection.insertOne(newPerson);
       console.log('Inserted document ID:', result.insertedId);
-      users.push(newPerson); // Adding the new person to the users array
+      documents.push(newPerson); // Adding the new person to the users array
       res.json('Success.');
       // res.redirect('/person'); // Redirecting to the '/person' route
     });
@@ -167,15 +167,30 @@ const connectToMongoDB = async () => {
 
 
     // DELETE /person/:id
-    app.delete('/person/:id', (req, res) => {
+    app.delete('/person/:id', async (req, res) => {
       const id = parseInt(req.params.id);
-      const personIndex = documents.findIndex(p => p.id === id);
-      if (personIndex === -1) {
-        res.status(404).json({ error: 'Person not found' });
-        return;
+      
+      try {
+        // Find and delete the person
+        const deletedPerson = await Person.findByIdAndDelete(id);
+    
+        if (!deletedPerson) {
+          res.status(404).json({ error: 'Person not found' });
+          return;
+        }
+    
+        res.json({ message: 'Person deleted', deletedPerson });
+      } catch (error) {
+        res.status(500).json({ error: 'Failed to delete person' });
       }
-      const deletedPerson = documents.splice(personIndex, 1);
-      res.json({ message: 'Person deleted', deletedPerson });
+
+      // const personIndex = documents.findIndex(p => p.id === id);
+      // if (personIndex === -1) {
+      //   res.status(404).json({ error: 'Person not found' });
+      //   return;
+      // }
+      // const deletedPerson = documents.splice(personIndex, 1);
+      // res.json({ message: 'Person deleted', deletedPerson });
     });
 
     app.get('/', (req, res) => {

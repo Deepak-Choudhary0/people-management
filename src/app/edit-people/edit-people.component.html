@@ -1,1 +1,28 @@
-<p>edit-people works!</p>
+<br><br>
+<div class="heading">
+    <mat-label> &nbsp; Edit Details </mat-label>
+</div>
+<br><br>
+<form (ngSubmit)="updateItem()" class="form-container">
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="person.name" name="name" placeholder="Name" required>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Age</mat-label>
+      <input matInput [(ngModel)]="person.age" name="age" placeholder="Age" required>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Gender</mat-label>
+      <input matInput [(ngModel)]="person.gender" name="gender" placeholder="Gender" required>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Mobile Number</mat-label>
+      <input matInput [(ngModel)]="person.mob" name="mob" placeholder="Mobile Number" required>
+    </mat-form-field>
+  
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+  </form>

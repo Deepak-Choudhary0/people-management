@@ -19,3 +19,10 @@
     width: 100%;
   }
   
+  .heading{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 20px;
+    font-weight: bold;
+  }

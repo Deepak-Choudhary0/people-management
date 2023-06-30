@@ -10,26 +10,33 @@
       Remove data
     </button>
   </div> -->
-  <br>
-  &nbsp;&nbsp;<button (click)="getAllItems()">Get All Item</button>
-  <br><br>
-  <span>
-    <mat-label> &nbsp; Select Your ID to View :- </mat-label>
-        <mat-form-field>
-            <mat-label>Select ID</mat-label>
-            <mat-select [(ngModel)]="selectedOption" (selectionChange)="onOptionSelected($event)">
-                <mat-option *ngFor="let id of getId()" [value]="id">{{ id }}</mat-option>
-              </mat-select>
-        </mat-form-field>
-        Click on Get All Item button to get all the id's except for 1
-        <p> 
-          <!-- &nbsp;Your Selected Option : {{ selectedOption }} -->
-          &nbsp;&nbsp;To get Details of Id:- {{selectedOption}} &nbsp;<button (click)="getItemById(selectedOption)">Click Here</button>
-        </p>
-  </span>
   <!-- <button (click)="createItem({id: 3, name: 'Punjab', age: 45, gender: 'F', mob: 1234567890})">Create Item</button> -->
   <!-- <button (click)="getItemById(1)">Get Item By ID</button> -->
+  
   <br><br>
+  <div class="heading">
+      <mat-label> &nbsp; All People Details </mat-label>
+  </div>
+  <!-- <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Number</mat-label>
+      <input type="text"
+             placeholder="Pick one"
+             aria-label="Number"
+             matInput
+             [formControl]="myControl"
+             [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form> -->
+  
+  <br><br>
+  
+  <div class="demo-table-div">
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
     
     <ng-container matColumnDef="id">
@@ -64,4 +71,4 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-  
+  </div>>

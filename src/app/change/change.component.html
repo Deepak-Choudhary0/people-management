@@ -11,24 +11,29 @@
     </button>
   </div> -->
   <br>
-  &nbsp;&nbsp;<button (click)="getAllItems()">Get All ID's</button>
-  <br><br>
-  <span>
-    <mat-label> &nbsp; Select Your ID to Change/Delete :- </mat-label>
-        <mat-form-field>
-            <mat-label>Select ID</mat-label>
-            <mat-select [(ngModel)]="selectedOption" (selectionChange)="onOptionSelected($event)">
-                <mat-option *ngFor="let id of getId()" [value]="id">{{ id }}</mat-option>
-              </mat-select>
-        </mat-form-field>
-        <p> 
+  <!-- <button class="get-button" (click)="getAllItems()">Get all id's</button> -->
+
+  <div class="selection-container">
+    <mat-label> &nbsp; Select Your ID</mat-label>
+    <mat-form-field>
+        <mat-label>Select ID</mat-label>
+        <mat-select [(ngModel)]="selectedOption" (selectionChange)="onOptionSelected($event)">
+            <mat-option *ngFor="let id of getId()" [value]="id">{{ id }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="button-container">
+    <!-- <span>To Change/Delete Details of Id:- {{selectedOption}}</span> -->
+    <button mat-raised-button color="primary" class="edit-button" [disabled]="!isDisable" [routerLink]="'/edit/' + selectedOption">Edit Person Details</button>
+    <button mat-raised-button color="warn" class="delete-button" [disabled]="!isDisable" (click)="openDialog()">Delete Person</button>
+    <!-- <button mat-raised-button (click)="openDialog()">Open dialog</button> -->
+  </div>
+        
           <!-- &nbsp;Your Selected Option : {{ selectedOption }} -->
-          &nbsp;&nbsp;To Change/Delete Details of Id:- {{selectedOption}} &nbsp;<button (click)="getItemById(selectedOption)">Click Here</button>
-        </p>
-  </span>
   <!-- <button (click)="createItem({id: 3, name: 'Punjab', age: 45, gender: 'F', mob: 1234567890})">Create Item</button> -->
   <!-- <button (click)="getItemById(1)">Get Item By ID</button> -->
   <br><br>
+  <div class="demo-table-container">
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
     
     <ng-container matColumnDef="id">
@@ -63,4 +68,4 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-  
+</div>

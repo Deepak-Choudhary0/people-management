@@ -1,11 +1,13 @@
-# People Management App
-
-<p align="center">
+<h1 align="center">
+  People Management App
+  <br><br>
 <a href="https://twitter.com/c72124925" alt="Twitter Follow">
-<img src="https://img.shields.io/twitter/follow/c72124925.svg?label=Follow+Deepak&style=social" /></a>
+<img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" /></a>
 <a href="https://www.linkedin.com/in/deepakchoudhary2003/">
-<img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></p>a
-</p>
+<img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
+  <a href="https://github.com/Deepak-Choudhary0">
+  <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a>
+</h1>
 The People Management App is a web application built using the MEAN stack, which stands for MongoDB, Express, Angular, and Node.js. It allows you to manage a database of people, including their names, ages, genders, and mobile numbers.
 
 ## Authors

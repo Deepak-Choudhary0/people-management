@@ -56,5 +56,6 @@ MongoDB Connection: create a database named `person` and a collection in it as `
 Contributions are welcome! If you have any ideas, suggestions, or bug fixes, please submit a pull request or open an issue.
 
 ## Further help
-Raise an issue for any kind of bug , issue , or help in this Repo.
+Raise an issue for any kind of bug , issue in this Repo.
+And if you need any kind of help then please let me know by connecting to me on social media and can do that by clicking on the badges placed below to the heading of this project.
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

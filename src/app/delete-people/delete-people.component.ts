@@ -19,7 +19,7 @@ export class DeletePeopleComponent {
     const container = this.elementRef.nativeElement.querySelector('#container');
     const button2 = this.elementRef.nativeElement.querySelector('#delete');
 
-    const button1 = this.elementRef.nativeElement.querySelector('#delete');
+    const button1 = this.elementRef.nativeElement.querySelector('#cancel');
     if (container && button2 && button1) {
       this.renderer.setStyle(container, 'background-color', '#75e052');
       this.renderer.setStyle(button2, 'display', 'none');
@@ -43,7 +43,7 @@ export class DeletePeopleComponent {
     this.http.delete<any>(`http://localhost:3000/person/${id}`).subscribe(response => {
       // Handle the response
       // console.log(response);
-      this.message = `${response.deletedPerson[0].name} Details Deleted Successfully..`;
+      this.message = `Details Deleted Successfully..`;
       this.changeStyle();
       // console.log(response[0])
       // console.log(response.deletedPerson[0].name);

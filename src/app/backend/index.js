@@ -1,5 +1,5 @@
 const express = require('express');
-const { MongoClient } = require('mongodb');
+const { MongoClient,ObjectId } = require('mongodb');
 const cors = require('cors');
 
 const app = express();
@@ -27,8 +27,8 @@ const connectToMongoDB = async () => {
     if (collectionExists) {
       console.log(`The collection '${collectionName}' exists in the 'person' database.`);
       
-      const collection = db.collection(collectionName);
-      var documents = await collection.find().toArray();
+      // const collection = db.collection(collectionName);
+      // const documents = await collection.find().toArray();
       // CRUD on MongoDB
 
       // // Create data
@@ -168,30 +168,15 @@ const connectToMongoDB = async () => {
     // DELETE /person/:id
     app.delete('/person/:id', async (req, res) => {
       const collection = db.collection(collectionName);
-      var documents = await collection.find().toArray();
       const id = parseInt(req.params.id);
-      // const person = documents.find(p => p.id === id);
-      try {
-        // Find and delete the person
-        const deletedPerson = await documents.findByIdAndDelete(id);
-    
-        if (!deletedPerson) {
-          res.status(404).json({ error: 'Person not found' });
-          return;
-        }
-    
-        res.json({ message: 'Person deleted', deletedPerson });
-      } catch (error) {
-        res.status(500).json({ error: 'Failed to delete person' });
+      const result = await collection.deleteOne({ id: id });
+
+      if (result.deletedCount === 1) {
+        res.status(200).json({ success: true, message: 'User deleted' });
+      } else {
+        res.status(404).json({ success: false, message: 'User not found' });
       }
 
-      // const personIndex = documents.findIndex(p => p.id === id);
-      // if (personIndex === -1) {
-      //   res.status(404).json({ error: 'Person not found' });
-      //   return;
-      // }
-      // const deletedPerson = documents.splice(personIndex, 1);
-      // res.json({ message: 'Person deleted', deletedPerson });
     });
 
     app.get('/', (req, res) => {
